@@ -1,0 +1,45 @@
+@use 'sass:color';
+@use './variables' as *;
+@use './components/chat-container';
+@use './components/message';
+@use './components/chat-input';
+@use './components/loading-indicator';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  background-color: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.message-list-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-lg 0;
+  background-color: $color-bg-chat;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-text-secondary;
+    border-radius: 4px;
+
+    &:hover {
+      background: color.adjust($color-text-secondary, $lightness: -10%);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use '../variables' as *;
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0 $spacing-lg;
+  margin-bottom: $spacing-md;
+
+  .loading-text {
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+  }
+
+  .loading-dots {
+    display: flex;
+    gap: $spacing-xs;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: $color-primary;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

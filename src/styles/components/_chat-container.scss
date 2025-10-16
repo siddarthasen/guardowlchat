@@ -1,0 +1,35 @@
+@use '../variables' as *;
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: $color-bg-chat;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.chat-header {
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: $spacing-xs 0 0;
+    font-size: $font-size-sm;
+    opacity: 0.9;
+  }
+}

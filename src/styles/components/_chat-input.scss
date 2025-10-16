@@ -1,0 +1,65 @@
+@use '../variables' as *;
+
+.chat-input-container {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  border-top: 1px solid $color-border;
+  background-color: $color-bg-chat;
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+  }
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid $color-border;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: $font-family;
+  transition: border-color $transition-speed;
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-focus;
+  }
+
+  &:disabled {
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+}
+
+.send-button {
+  padding: 12px 24px;
+  background-color: $color-primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color $transition-speed;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+  }
+
+  &:disabled {
+    background-color: $color-text-secondary;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 16px;
+  }
+}
