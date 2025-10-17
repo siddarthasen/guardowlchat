@@ -1,8 +1,6 @@
 @use '../variables' as *;
 
 .chat-input-container {
-  display: flex;
-  gap: $spacing-sm;
   padding: $spacing-lg;
   border-top: 1px solid $color-border;
   background-color: $color-bg-chat;
@@ -10,6 +8,12 @@
   @media (max-width: 768px) {
     padding: $spacing-md;
   }
+}
+
+.chat-input-form {
+  display: flex;
+  gap: $spacing-sm;
+  width: 100%;
 }
 
 .chat-input {

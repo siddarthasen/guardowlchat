@@ -3,6 +3,7 @@ import MessageList from './MessageList';
 import ChatInput from './ChatInput';
 import { sendChatMessage } from '../services/api';
 import { streamText } from '../utils/streamSimulator';
+import guardOwlLogo from '../utils/guardOwlLogo.jpeg';
 
 export default function ChatContainer() {
   const [messages, setMessages] = useState([]);
@@ -117,8 +118,11 @@ export default function ChatContainer() {
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <h1>Guard Owl Assistant</h1>
-        <p>Ask me anything about your schedule and tasks</p>
+        <img src={guardOwlLogo} alt="Guard Owl Logo" className="header-logo" />
+        <div className="header-text">
+          <h1>Guard Owl Assistant</h1>
+          <p>Ask me anything about your reports, schedule, or contact information</p>
+        </div>
       </div>
       <MessageList messages={messages} isLoading={isLoading} />
       <ChatInput
