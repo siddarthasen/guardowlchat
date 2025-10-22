@@ -1,11 +1,12 @@
 import { getApiUrl, CHAT_ENDPOINT } from '../utils/constants.js';
 
 /**
- * Sends a chat message to the backend API
+ * Sends a chat message to the backend API with conversation context
  * @param {string} query - The user's message
+ * @param {string} conversationId - Unique conversation identifier
  * @returns {Promise<object>} - The API response
  */
-export async function sendChatMessage(query) {
+export async function sendChatMessage(query, conversationId) {
   const apiUrl = getApiUrl();
   const url = `${apiUrl}${CHAT_ENDPOINT}`;
 
@@ -19,7 +20,10 @@ export async function sendChatMessage(query) {
         'accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({
+        query,
+        conversationId  // Include conversationId in request
+      }),
       signal: controller.signal,
     });
 
